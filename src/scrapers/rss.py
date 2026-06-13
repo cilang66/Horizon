@@ -85,6 +85,10 @@ class RSSScraper(BaseScraper):
                 if not published_at or published_at < since:
                     continue
 
+                # Enforce per-feed fetch limit
+                if source.fetch_limit is not None and len(items) >= source.fetch_limit:
+                    break
+
                 # Generate unique ID from feed URL and entry ID
                 feed_id = str(source.url).split("//")[1].replace("/", "_")
                 entry_id = entry.get("id", entry.get("link", ""))
