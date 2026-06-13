@@ -12,7 +12,12 @@
     "languages": ["zh", "en"]
   },
   "email": {
-    "enabled": false
+    "enabled": false,
+    "smtp_server": "",
+    "smtp_port": 465,
+    "imap_server": "",
+    "imap_port": 993,
+    "email_address": ""
   },
   "sources": {
     "github": [
