@@ -22,54 +22,57 @@
   "sources": {
     "github": [
       {
-        "type": "user_events",
-        "username": "karpathy",
+        "type": "repo_releases",
+        "owner": "comfyanonymous",
+        "repo": "ComfyUI",
         "enabled": true
       },
       {
-        "type": "user_events",
-        "username": "ggerganov",
+        "type": "repo_releases",
+        "owner": "Stability-AI",
+        "repo": "stablediffusion",
         "enabled": true
       },
       {
-        "type": "user_events",
-        "username": "jackfrued",
+        "type": "repo_releases",
+        "owner": "runwayml",
+        "repo": "stable-diffusion",
+        "enabled": true
+      },
+      {
+        "type": "repo_releases",
+        "owner": "AUTOMATIC1111",
+        "repo": "stable-diffusion-webui",
         "enabled": true
       },
       {
         "type": "repo_releases",
         "owner": "openai",
-        "repo": "openai-cookbook",
+        "repo": "sora",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "deepseek-ai",
-        "repo": "DeepSeek-V3",
+        "owner": "TencentARC",
+        "repo": "AnimateDiff",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "langgenius",
-        "repo": "dify",
+        "owner": "llychao",
+        "repo": "Awesome-Text2Video",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "n8n-io",
-        "repo": "n8n",
+        "owner": "lllyasviel",
+        "repo": "Fooocus",
         "enabled": true
       },
       {
         "type": "repo_releases",
-        "owner": "microsoft",
-        "repo": "vscode",
-        "enabled": true
-      },
-      {
-        "type": "repo_releases",
-        "owner": "ollama",
-        "repo": "ollama",
+        "owner": "Lightricks",
+        "repo": "LTX-Video",
         "enabled": true
       }
     ],
@@ -80,52 +83,47 @@
     },
     "rss": [
       {
-        "name": "Simon Willison",
-        "url": "https://simonwillison.net/atom/everything/",
+        "name": "Stability AI Blog",
+        "url": "https://stability.ai/blogs/rss.xml",
         "enabled": true,
-        "category": "ai-tools"
+        "category": "aigc-tools"
+      },
+      {
+        "name": "RunwayML Blog",
+        "url": "https://runwayml.com/blog/feed.xml",
+        "enabled": true,
+        "category": "ai-video"
+      },
+      {
+        "name": "Hugging Face - Diffusion Models",
+        "url": "https://huggingface.co/blog/feed.xml",
+        "enabled": true,
+        "category": "aigc-tools"
+      },
+      {
+        "name": "ArXiv - cs.CV (Computer Vision)",
+        "url": "https://rss.arxiv.org/rss/cs.CV",
+        "enabled": true,
+        "category": "aigc-research",
+        "fetch_limit": 15
+      },
+      {
+        "name": "ArXiv - cs.GR (Graphics)",
+        "url": "https://rss.arxiv.org/rss/cs.GR",
+        "enabled": true,
+        "category": "aigc-research",
+        "fetch_limit": 10
+      },
+      {
+        "name": "ArXiv - cs.MM (Multimedia)",
+        "url": "https://rss.arxiv.org/rss/cs.MM",
+        "enabled": true,
+        "category": "aigc-research",
+        "fetch_limit": 10
       },
       {
         "name": "TechCrunch - AI",
         "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
-        "enabled": true,
-        "category": "ai-news"
-      },
-      {
-        "name": "ArXiv - cs.AI",
-        "url": "https://rss.arxiv.org/rss/cs.AI",
-        "enabled": true,
-        "category": "ai-research",
-        "fetch_limit": 15
-      },
-      {
-        "name": "ArXiv - cs.CL (NLP)",
-        "url": "https://rss.arxiv.org/rss/cs.CL",
-        "enabled": true,
-        "category": "ai-research",
-        "fetch_limit": 15
-      },
-      {
-        "name": "Hugging Face Blog",
-        "url": "https://huggingface.co/blog/feed.xml",
-        "enabled": true,
-        "category": "ai-tools"
-      },
-      {
-        "name": "MIT Tech Review - AI",
-        "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed/",
-        "enabled": true,
-        "category": "ai-news"
-      },
-      {
-        "name": "VentureBeat - AI",
-        "url": "https://venturebeat.com/category/ai/feed/",
-        "enabled": true,
-        "category": "ai-news"
-      },
-      {
-        "name": "Ars Technica - AI",
-        "url": "https://feeds.arstechnica.com/arstechnica/index",
         "enabled": true,
         "category": "ai-news"
       }
@@ -134,28 +132,44 @@
       "enabled": true,
       "subreddits": [
         {
-          "subreddit": "MachineLearning",
+          "subreddit": "StableDiffusion",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 15,
-          "min_score": 50
+          "min_score": 20
         },
         {
-          "subreddit": "LocalLLaMA",
+          "subreddit": "StableDiffusionTutorials",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "week",
+          "fetch_limit": 10,
+          "min_score": 10
+        },
+        {
+          "subreddit": "ComfyUI",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 15,
-          "min_score": 30
+          "min_score": 10
         },
         {
-          "subreddit": "OpenAI",
+          "subreddit": "aivideo",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 15,
+          "min_score": 10
+        },
+        {
+          "subreddit": "AIArtist",
           "enabled": true,
           "sort": "hot",
           "time_filter": "day",
           "fetch_limit": 10,
-          "min_score": 50
+          "min_score": 20
         }
       ],
       "users": [],
@@ -163,7 +177,7 @@
     },
     "twitter": {
       "enabled": true,
-      "users": ["karpathy", "ylecun", "amasad", "sama", "rauchg", "jim_fan_", "dr_cintas", "nickfloats", "ai_npc1"],
+      "users": ["StabilityAI", "RunwayML", "comfy_org", "Civitai", "lily_ai_art", "growing_ai_art", "ai_video_tools", "Kling_ai", "Pika_Labs"],
       "fetch_limit": 10,
       "fetch_reply_text": false,
       "max_replies_per_tweet": 3,
@@ -174,7 +188,7 @@
       "enabled": true,
       "period": "past_24_hours",
       "languages": ["All", "Python", "TypeScript"],
-      "keywords": ["llm", "agent", "ai", "gpt", "rag", "embedding", "diffusion", "transformer"],
+      "keywords": ["aigc", "stable-diffusion", "comfyui", "image-generation", "video-generation", "sora", "text-to-video", "text-to-image", "diffusion", "controlnet", "lora"],
       "min_stars": 10,
       "max_items": 30
     }
@@ -183,9 +197,25 @@
     "ai_score_threshold": 6.0,
     "time_window_hours": 48,
     "max_items": 20,
-    "category_groups": {},
+    "category_groups": {
+      "image-gen": {
+        "name": "AI图像生成",
+        "limit": 6,
+        "categories": ["aigc-images", "aigc-models"]
+      },
+      "video-gen": {
+        "name": "AI视频生成",
+        "limit": 6,
+        "categories": ["ai-video"]
+      },
+      "tools": {
+        "name": "AIGC工具教程",
+        "limit": 5,
+        "categories": ["aigc-tools", "aigc-research"]
+      }
+    },
     "default_group": "other",
-    "default_group_limit": null
+    "default_group_limit": 3
   },
   "webhook": {
     "enabled": false
