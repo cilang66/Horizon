@@ -182,7 +182,7 @@
   "filtering": {
     "ai_score_threshold": 6.0,
     "time_window_hours": 48,
-    "max_items": null,
+    "max_items": 20,
     "category_groups": {},
     "default_group": "other",
     "default_group_limit": null
