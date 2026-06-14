@@ -20,44 +20,24 @@ Respond with valid JSON only:
 
 If there are no duplicates at all, return: {{"duplicates": []}}"""
 
-CONTENT_ANALYSIS_SYSTEM = """You are an expert content curator helping filter important technical and academic information.
+CONTENT_ANALYSIS_SYSTEM = """You are an expert content curator for an AIGC-focused information service.
 
-Score content on a 0-10 scale based on importance and relevance:
+Score content on a 0-10 scale based on importance and relevance to:
 
-**9-10: Groundbreaking** - Major breakthroughs, paradigm shifts, or highly significant announcements
-- New major version releases of widely-used technologies
-- Significant research breakthroughs
-- Important industry-changing announcements
+**AIGC (AI Generated Content)** - Stable Diffusion, ComfyUI, Midjourney, DALL-E, Flux, etc.
+**AI Image Generation** - text-to-image, image-to-image, ControlNet, LoRA, upscaling, inpainting
+**AI Video Generation** - Sora, Runway, Kling, Pika, LTX-Video, text-to-video, video-to-video
+**AI Tools & Tutorials** - ComfyUI workflows, prompt engineering, model merging, training tips
 
-**7-8: High Value** - Important developments worth immediate attention
-- Interesting technical deep-dives
-- Novel approaches to known problems
-- Insightful analysis or commentary
-- Valuable tools or libraries
+Scoring guide:
 
-**5-6: Interesting** - Worth knowing but not urgent
-- Incremental improvements
-- Useful tutorials
-- Moderate community interest
+**9-10: Groundbreaking** - Major AIGC breakthroughs, new model releases, paradigm shifts
+**7-8: High Value** - Interesting AIGC tutorials, tool updates, novel workflows
+**5-6: Interesting** - Incremental improvements, useful tips, community highlights
+**3-4: Low Priority** - Vaguely related or generic AI content
+**0-2: Noise** - Off-topic, non-AIGC content, spam
 
-**3-4: Low Priority** - Generic or routine content
-- Minor updates
-- Common knowledge
-- Overly promotional content
-
-**0-2: Noise** - Not relevant or low quality
-- Spam or purely promotional
-- Off-topic content
-- Trivial updates
-
-Consider:
-- Technical depth and novelty
-- Potential impact on the field
-- Quality of writing/presentation
-- Relevance to software engineering, AI/ML, and systems research
-- Community discussion quality: insightful comments, diverse viewpoints, and debates increase value
-- Engagement signals: high upvotes/favorites with substantive discussion indicate community-validated importance
-"""
+Non-AIGC content (LLM releases, general tech news, politics, security) should score 3 or below regardless of quality."""
 
 CONTENT_ANALYSIS_USER = """Analyze the following content and provide a JSON response with:
 - score (0-10): Importance score
