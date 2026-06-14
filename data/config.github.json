@@ -86,19 +86,19 @@
         "name": "Stability AI Blog",
         "url": "https://stability.ai/blogs/rss.xml",
         "enabled": true,
-        "category": "aigc-tools"
+        "category": "image-model"
       },
       {
         "name": "RunwayML Blog",
         "url": "https://runwayml.com/blog/feed.xml",
         "enabled": true,
-        "category": "ai-video"
+        "category": "video-model"
       },
       {
         "name": "Hugging Face - Diffusion Models",
         "url": "https://huggingface.co/blog/feed.xml",
         "enabled": true,
-        "category": "aigc-tools"
+        "category": "image-model"
       },
       {
         "name": "ArXiv - cs.CV (Computer Vision)",
@@ -125,7 +125,7 @@
         "name": "TechCrunch - AI",
         "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
         "enabled": true,
-        "category": "ai-news"
+        "category": "aigc-news"
       }
     ],
     "reddit": {
@@ -188,7 +188,7 @@
       "enabled": true,
       "period": "past_24_hours",
       "languages": ["All", "Python", "TypeScript"],
-      "keywords": ["aigc", "stable-diffusion", "comfyui", "image-generation", "video-generation", "sora", "text-to-video", "text-to-image", "diffusion", "controlnet", "lora"],
+      "keywords": ["aigc", "stable-diffusion", "comfyui", "flux", "midjourney", "image-generation", "video-generation", "sora", "runway", "kling", "pika", "text-to-video", "text-to-image", "image-to-video", "diffusion", "controlnet", "lora", "ip-adapter", "upscale", "inpainting", "outpainting", "animatediff", "latent-consistency", "sdxl", "sd3", "sd-turbo", "hunyuan-video", "cogvideo", "wan-video"],
       "min_stars": 10,
       "max_items": 30
     }
@@ -198,25 +198,35 @@
     "time_window_hours": 24,
     "max_items": 30,
     "category_groups": {
-      "aigc": {
+      "aigc-news": {
         "name": "AIGC资讯",
-        "limit": 8,
-        "categories": ["aigc-tools", "aigc-research", "ai-news"]
+        "limit": 5,
+        "categories": ["aigc-news", "aigc-tool", "aigc-research"]
       },
-      "image-gen": {
-        "name": "AI生图教程",
-        "limit": 8,
-        "categories": ["aigc-images", "aigc-models"]
+      "image-model": {
+        "name": "AI生图·模型工具",
+        "limit": 6,
+        "categories": ["image-model"]
       },
-      "video-gen": {
-        "name": "AI生视频教程",
-        "limit": 8,
-        "categories": ["ai-video"]
+      "image-tutorial": {
+        "name": "AI生图·教程案例",
+        "limit": 6,
+        "categories": ["image-tutorial", "image-showcase"]
+      },
+      "video-model": {
+        "name": "AI视频·模型工具",
+        "limit": 5,
+        "categories": ["video-model"]
+      },
+      "video-tutorial": {
+        "name": "AI视频·教程案例",
+        "limit": 5,
+        "categories": ["video-tutorial", "video-showcase"]
       },
       "prompt": {
         "name": "提示词教程",
-        "limit": 6,
-        "categories": ["prompt-engineering"]
+        "limit": 5,
+        "categories": ["prompt-tutorial"]
       }
     },
     "default_group": "other",

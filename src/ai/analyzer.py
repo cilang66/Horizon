@@ -160,3 +160,8 @@ class ContentAnalyzer:
         item.ai_reason = result.get("reason", "")
         item.ai_summary = result.get("summary", item.title)
         item.ai_tags = result.get("tags", [])
+
+        # Set AI-inferred category into metadata (overrides scraper's category)
+        ai_category = result.get("category")
+        if isinstance(ai_category, str) and ai_category.strip():
+            item.metadata["category"] = ai_category.strip()

@@ -22,26 +22,32 @@ If there are no duplicates at all, return: {{"duplicates": []}}"""
 
 CONTENT_ANALYSIS_SYSTEM = """You are an expert content curator for an AIGC-focused information service.
 
-Score content on a 0-10 scale based on importance and relevance to:
+Score content on a 0-10 scale and assign it to the best-matching category.
 
-**AIGC (AI Generated Content)** - Stable Diffusion, ComfyUI, Midjourney, DALL-E, Flux, etc.
-**AI Image Generation** - text-to-image, image-to-image, ControlNet, LoRA, upscaling, inpainting
-**AI Video Generation** - Sora, Runway, Kling, Pika, LTX-Video, text-to-video, video-to-video
-**AI Tools & Tutorials** - ComfyUI workflows, prompt engineering, model merging, training tips
+**Categories (pick the ONE best match):**
+- `image-model`: New AI image generation models, tools, and releases (SD, Flux, Midjourney, DALL-E, etc.)
+- `image-tutorial`: Image generation tutorials, workflows, tips, parameter tuning
+- `image-showcase`: Image generation case studies, prompt breakdowns, style analysis, comparisons
+- `video-model`: New AI video generation models and tools (Sora, Runway, Kling, Pika, LTX-Video, etc.)
+- `video-tutorial`: Video generation tutorials, workflows, techniques
+- `video-showcase`: Video generation case studies, comparisons, quality analysis
+- `prompt-tutorial`: Prompt engineering tips, techniques, best practices
+- `aigc-news`: General AIGC industry news, funding, company updates
+- `aigc-tool`: AIGC tools, plugins, extensions, ComfyUI nodes, integrations
+- `aigc-research`: AIGC-related research papers, academic work
 
-Scoring guide:
+Scoring:
 
-**9-10: Groundbreaking** - Major AIGC breakthroughs, new model releases, paradigm shifts
-**7-8: High Value** - Interesting AIGC tutorials, tool updates, novel workflows
-**5-6: Interesting** - Incremental improvements, useful tips, community highlights
-**3-4: Low Priority** - Vaguely related or generic AI content
-**0-2: Noise** - Off-topic, non-AIGC content, spam
-
-Non-AIGC content (LLM releases, general tech news, politics, security) should score 3 or below regardless of quality."""
+**9-10: Groundbreaking** - Major AIGC breakthroughs, paradigm shifts
+**7-8: High Value** - Useful tutorials, significant tool/model updates
+**5-6: Interesting** - Incremental improvements, community highlights
+**3-4: Low Priority** - Vaguely related AIGC content
+**0-2: Noise** - Non-AIGC content (LLM releases, security, politics, general tech)"""
 
 CONTENT_ANALYSIS_USER = """Analyze the following content and provide a JSON response with:
 - score (0-10): Importance score
-- reason: Brief explanation for the score (mention discussion quality if comments are provided)
+- category: The best-matching category from the list above (e.g. "image-model", "video-tutorial", "prompt-tutorial")
+- reason: Brief explanation for the score
 - summary: One-sentence summary of the content
 - tags: Relevant topic tags (3-5 tags)
 

@@ -610,18 +610,19 @@ class HorizonOrchestrator:
         from .models import SourceType
 
         st = item.source_type
-        # AIGC-centric source-type mapping
         if st == SourceType.REDDIT:
             subreddit = item.metadata.get("subreddit", "").lower()
-            if subreddit in ("stablediffusion", "comfyui", "stablediffusiontutorials", "aiartist"):
-                return "aigc-tools"
+            if subreddit in ("stablediffusion", "comfyui", "aiartist"):
+                return "image-model"
+            if subreddit in ("stablediffusiontutorials",):
+                return "image-tutorial"
             if subreddit in ("aivideo",):
-                return "ai-video"
-            return "aigc-research"  # other AI-related reddits
+                return "video-model"
+            return "aigc-news"
         if st in (SourceType.GITHUB, SourceType.OSSINSIGHT):
-            return "aigc-tools"
+            return "aigc-tool"
         if st == SourceType.TWITTER:
-            return "aigc-tools"
+            return "aigc-news"
         return None
 
     async def _expand_twitter_discussion(self, items: List[ContentItem]) -> None:
