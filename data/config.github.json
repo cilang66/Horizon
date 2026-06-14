@@ -230,7 +230,7 @@
       }
     },
     "default_group": "other",
-    "default_group_limit": 0
+    "default_group_limit": null
   },
   "webhook": {
     "enabled": false
