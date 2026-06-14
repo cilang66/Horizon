@@ -77,7 +77,7 @@
       }
     ],
     "hackernews": {
-      "enabled": true,
+      "enabled": false,
       "fetch_top_stories": 20,
       "min_score": 100
     },
@@ -195,27 +195,32 @@
   },
   "filtering": {
     "ai_score_threshold": 6.0,
-    "time_window_hours": 48,
-    "max_items": 20,
+    "time_window_hours": 24,
+    "max_items": 30,
     "category_groups": {
+      "aigc": {
+        "name": "AIGC资讯",
+        "limit": 8,
+        "categories": ["aigc-tools", "aigc-research", "ai-news"]
+      },
       "image-gen": {
-        "name": "AI图像生成",
-        "limit": 6,
+        "name": "AI生图教程",
+        "limit": 8,
         "categories": ["aigc-images", "aigc-models"]
       },
       "video-gen": {
-        "name": "AI视频生成",
-        "limit": 6,
+        "name": "AI生视频教程",
+        "limit": 8,
         "categories": ["ai-video"]
       },
-      "tools": {
-        "name": "AIGC工具教程",
-        "limit": 5,
-        "categories": ["aigc-tools", "aigc-research"]
+      "prompt": {
+        "name": "提示词教程",
+        "limit": 6,
+        "categories": ["prompt-engineering"]
       }
     },
     "default_group": "other",
-    "default_group_limit": 3
+    "default_group_limit": 0
   },
   "webhook": {
     "enabled": false

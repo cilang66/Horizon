@@ -538,6 +538,11 @@ class HorizonOrchestrator:
 
         for item in sorted_items:
             category = item.metadata.get("category")
+
+            # Infer category from source type for items that have none
+            if not isinstance(category, str):
+                category = self._infer_category(item)
+
             group_key = (
                 category_to_group.get(category, default_group)
                 if isinstance(category, str)
@@ -598,6 +603,26 @@ class HorizonOrchestrator:
             group_limits=group_limits,
             duplicate_categories=sorted(set(duplicate_categories)),
         )
+
+    @staticmethod
+    def _infer_category(item: "ContentItem") -> Optional[str]:
+        """Infer a category for items whose source scraper didn't set one."""
+        from .models import SourceType
+
+        st = item.source_type
+        # AIGC-centric source-type mapping
+        if st == SourceType.REDDIT:
+            subreddit = item.metadata.get("subreddit", "").lower()
+            if subreddit in ("stablediffusion", "comfyui", "stablediffusiontutorials", "aiartist"):
+                return "aigc-tools"
+            if subreddit in ("aivideo",):
+                return "ai-video"
+            return "aigc-research"  # other AI-related reddits
+        if st in (SourceType.GITHUB, SourceType.OSSINSIGHT):
+            return "aigc-tools"
+        if st == SourceType.TWITTER:
+            return "aigc-tools"
+        return None
 
     async def _expand_twitter_discussion(self, items: List[ContentItem]) -> None:
         """Second-stage: fetch reply text for important Twitter items and re-analyze.
